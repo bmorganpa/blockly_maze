@@ -36,6 +36,7 @@
 
 <script>
 import BlocklyComponent from './components/BlocklyComponent.vue'
+import BlocklyJS from 'blockly/javascript';
 
 export default {
   name: 'app',
@@ -98,7 +99,7 @@ export default {
   },
   methods: {
     showCode() {
-      this.code = "FOO"
+      this.code = BlocklyJS.workspaceToCode(this.$refs["foo"].workspace);
     }
   }
 }
