@@ -1,10 +1,6 @@
 <template>
   <div>
-    <div class="blocklyDiv" ref="blocklyDiv">
-    </div>
-    <xml ref="blocklyToolbox" style="display:none">
-      <slot></slot>
-    </xml>
+    <div class="blocklyDiv" ref="blocklyDiv"/>
   </div>
 </template>
 
@@ -14,16 +10,13 @@ import Blockly from 'blockly';
 export default {
   name: 'BlocklyComponent',
   props: ['options'],
-  data(){
+  data() {
     return {
       workspace: null
     }
   },
   mounted() {
     var options = this.$props.options || {};
-    if (!options.toolbox) {
-      options.toolbox = this.$refs["blocklyToolbox"];
-    }
     this.workspace = Blockly.inject(this.$refs["blocklyDiv"], options);
   }
 }
